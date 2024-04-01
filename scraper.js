@@ -48,12 +48,8 @@ if (!path) {
     console.log('Navigating to the destination URL...');
     await page.goto(targetUrl, { waitUntil: 'networkidle0' });
     const pageHTML = await page.content();
-    await fs.writeFile('tempDump.txt', pageHTML);
-
-    const htmlContent = await fs.readFile('tempDump.txt', 'utf8');
-    const $ = cheerio.load(htmlContent);
-
-// Extracting data
+     // Directly load the HTML content into Cheerio, skipping the filesystem
+     const $ = cheerio.load(pageHTML);
 
 const nameText = $('h3.css-jfnbht').text().trim();
 let fname = "", lname = "";
