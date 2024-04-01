@@ -1,0 +1,32 @@
+const express = require('express');
+const puppeteer = require('puppeteer');
+
+const app = express();
+const port = 3333; // You can use any port that is free on your system
+
+app.get('/scrape', async (req, res) => {
+  const browser = await puppeteer.launch(const puppeteer = require('puppeteer');
+
+(async () => {
+  const browser = await puppeteer.launch({
+    executablePath: '/root/.cache/puppeteer/chrome/linux-122.0.6261.69/chrome-linux64/chrome',
+    args: ['--no-sandbox', '--disable-setuid-sandbox'] // Consider security implications
+  });
+  const page = await browser.newPage();
+  await page.goto('http://example.com');
+  // Your code here
+  await browser.close();
+})();
+);
+  const page = await browser.newPage();
+  await page.goto('http://esdbooking.us');
+  const pageTitle = await page.title();
+  await browser.close();
+  
+  res.send(`Page title is: ${pageTitle}`);
+});
+
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}`);
+});
+
