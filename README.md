@@ -1,7 +1,15 @@
 
-# Web Scraping API with Node.js
+# Web Scraping API with Node.js for obtaining leads from Sales River
 
 This project is a Node.js application that uses Express, Puppeteer, Cheerio, and CORS to perform web scraping on specific pages after authentication. It's designed to extract structured information from web pages and return it in JSON format.
+
+## Why?
+
+Because this third party ONLY allows the sending of leads via Zapier. I have a crusade against Zapier, as per my only other public project (GHLFreeRelay) which helps defeat this some problem when other companies follow the same boneheaded path as Go High Level and Zapier. Introducing: Sales River. The software that offers "integrations" with an s, with... Zapier only. Yikes! 
+
+Using my tools, you will spend $0 with Zapier. You should not have to PAY to send DATA on the INTERNET. The most mindless thing ever is that people tolerate this. 
+
+This same company offers to SMS (Text) or email the leads, but they just provide a link. There are a few anti-bot practices on their end (you know, because why just give you the leads you've paid for when they can make you jump through hoops... or pay Zapier), which is why some of this code is a bit obtuse. Enjoy!
 
 ## Features
 
@@ -81,6 +89,14 @@ The response will be a JSON object containing the scraped data.
 - [Puppeteer](https://pptr.dev/) - For automated web browser control
 - [Cheerio](https://cheerio.js.org/) - Used to parse and manipulate HTML
 - [CORS](https://github.com/expressjs/cors) - Middleware to enable CORS
+
+
+## Other Notes
+
+It is highly likely that you will still need to do your own parsing - either of the email, or their incoming SMS that contain the link. This way, you can track, parse, extract, log and queue these processes somewhere. Whatever language you use to perform the other task, all it really has to do is be able to POST the URL to the endpoint created by this script. The response back will contain all the information you need to insert the lead in your database (via JSON). 
+
+There are environment variables for controlling the access allowed (from your other server), as well as the Sales River client (assuming it may not be Consumer Affairs), and a few other parameters. A future update may allow the response to be sent to a different (or multiple) other endpoints waiting for the JSON, but it is not currently a priority.
+
 
 ## Contributing
 
