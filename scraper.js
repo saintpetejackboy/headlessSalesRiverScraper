@@ -11,7 +11,7 @@ const port = 3333;
 
 // CORS configuration for secure cross-origin requests
 const corsOptions = {
-  origin: 'https://esdbooking.us',
+  origin: process.env.QUERY_SERVER,
 };
 app.use(cors(corsOptions));
 
@@ -25,8 +25,9 @@ app.get('/scrape', async (req, res) => {
       return res.status(400).send('Path parameter is required');
     }
 
-    // Construct target URL from path parameter
-    const targetUrl = `https://marketplace.consumeraffairs.com/dash/leads/${path}`;
+    // Use the BASE_URL environment variable to construct target URL
+    const loginUrl = `${process.env.BASE_URL}/login`;
+    const targetUrl = `${process.env.BASE_URL}/dash/leads/${path}`;
 
     // Launch Puppeteer browser
     browser = await puppeteer.launch({
@@ -36,7 +37,7 @@ app.get('/scrape', async (req, res) => {
     });
 
     const page = await browser.newPage();
-    await page.goto("https://marketplace.consumeraffairs.com/login", { waitUntil: 'networkidle2' });
+    await page.goto(loginUrl, { waitUntil: 'networkidle2' });
 
     // Perform login
     await page.type('input[name="email"]', process.env.EMAIL, { delay: 200 });
@@ -73,6 +74,7 @@ app.get('/scrape', async (req, res) => {
 
     // Construct and send JSON response
     const jsonResponse = { fname, lname, phone, email, address, city, state, zip, campaign };
+    console.log(jsonResponse);
     res.json(jsonResponse);
     
   } catch (error) {
