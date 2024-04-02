@@ -5,11 +5,13 @@ This project is a Node.js application that uses Express, Puppeteer, Cheerio, and
 
 ## Why?
 
-Because this third party ONLY allows the sending of leads via Zapier. I have a crusade against Zapier, as per my only other public project (GHLFreeRelay) which helps defeat this some problem when other companies follow the same boneheaded path as Go High Level and Zapier. Introducing: Sales River. The software that offers "integrations" with an s, with... Zapier only. Yikes! 
+Introducing: Sales River. The software that offers "integrations", with... Zapier only. Yikes! 
 
-Using my tools, you will spend $0 with Zapier. You should not have to PAY to send DATA on the INTERNET. The most mindless thing ever is that people tolerate this. 
+Using my tools, you will spend $0 with Zapier. You should not have to PAY to send DATA on the INTERNET. 
 
-This same company offers to SMS (Text) or email the leads, but they just provide a link. There are a few anti-bot practices on their end (you know, because why just give you the leads you've paid for when they can make you jump through hoops... or pay Zapier), which is why some of this code is a bit obtuse. Enjoy!
+This same company offers to SMS (Text) or email the leads, but they just provide a link. There are a few anti-bot practices on their end (you know, because why just give you the leads you've paid for when they can make you jump through hoops... or pay Zapier), which is why some of this code is a bit obtuse. Enjoy! 
+
+If you like this project and the sentiment behind it, check out my other current public repository, GHLFreeRelay, which allows the transfer of leads on Go High Level, even between accounts, for $0 and no using of Zapier.
 
 ## Features
 
